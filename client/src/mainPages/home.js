@@ -10,7 +10,6 @@ function Home(props) {
       <Content
         signedIn={props.signedIn}
         history={props.history}
-        jwt={props.jwt}
         sethistory={props.sethistory}
       />
       <Footer />

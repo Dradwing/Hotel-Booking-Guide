@@ -18,7 +18,6 @@ function MyProfile(props) {
       const url = "/api/v1/users/deleteMe/";
       const header = {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${props.jwt}`,
       };
       axios({ method: "DELETE", url: url, headers: header })
         .then((res) => {

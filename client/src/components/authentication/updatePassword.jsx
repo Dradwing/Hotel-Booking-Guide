@@ -8,7 +8,6 @@ function UpdatePassword(props) {
   const url = "/api/v1/users/updatePassword/";
   const header = {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${props.jwt}`,
   };
   const [data, setdata] = React.useState({});
 

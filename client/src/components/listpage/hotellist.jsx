@@ -147,8 +147,7 @@ function Hotellist(props) {
             startdate,
             enddate,
             query,
-            props.signedIn,
-            props.jwt
+            props.signedIn
           )
         )}
       </div>
@@ -161,8 +160,7 @@ function Createcardforhotellist(
   startdate,
   enddate,
   query,
-  signedIn,
-  jwt
+  signedIn
 ) {
   if (hotelslist.length < 2 || hotelslist.starRating === 0.0) {
     return;

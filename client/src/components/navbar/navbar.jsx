@@ -2,9 +2,24 @@ import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import MyProfile from "./myprofile";
+import axios from "axios";
 
 function NNavbar(props) {
   const history = useHistory();
+  const signout = () => {
+    axios
+      .get("/api/v1/users/logout/")
+      .then((resp) => {
+        console.log(resp.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    props.setsignedIn(false);
+    props.sethistory([]);
+    history.push("/");
+    return;
+  };
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
@@ -54,7 +69,6 @@ function NNavbar(props) {
                   sethistory={props.sethistory}
                   setuser={props.setuser}
                   setsignedIn={props.setsignedIn}
-                  jwt={props.jwt}
                 />
                 <Nav.Link eventKey={2}>
                   <buttton
@@ -66,12 +80,7 @@ function NNavbar(props) {
                       fontWeight: "550",
                       borderRadius: "2px",
                     }}
-                    onClick={() => {
-                      props.setsignedIn(false);
-                      props.sethistory([]);
-                      history.push("/");
-                      return;
-                    }}
+                    onClick={() => signout()}
                   >
                     <i class="fas fa-power-off"></i> Sign-out
                   </buttton>

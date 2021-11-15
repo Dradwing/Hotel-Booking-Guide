@@ -12,7 +12,6 @@ function Cardforpast(props) {
       url: "/api/v1/users/deleteHistory",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${props.jwt}`,
       },
       data: {
         history: {

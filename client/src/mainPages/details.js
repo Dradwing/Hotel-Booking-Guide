@@ -77,7 +77,6 @@ function Details(props) {
     url: "/api/v1/users/addHistory",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${props.jwt}`,
     },
     data: {
       history: {

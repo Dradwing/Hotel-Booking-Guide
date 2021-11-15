@@ -12,7 +12,7 @@ function Pastsearch(props) {
               .slice(0)
               .reverse()
               .map((history) =>
-                Createcardforhistory(history, props.jwt, props.sethistory)
+                Createcardforhistory(history, props.sethistory)
               )}
           </div>
         ) : (
@@ -28,7 +28,7 @@ function Pastsearch(props) {
     </>
   );
 }
-function Createcardforhistory(history, jwt, sethistory) {
-  return <Cardforpast history={history} jwt={jwt} sethistory={sethistory} />;
+function Createcardforhistory(history, sethistory) {
+  return <Cardforpast history={history} sethistory={sethistory} />;
 }
 export default Pastsearch;

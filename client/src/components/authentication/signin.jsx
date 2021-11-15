@@ -23,7 +23,7 @@ function Signin(props) {
       .then((res) => {
         if (res.data.status === "success") {
           props.sethistory(res.data.data.user.history);
-          props.setjwt(res.data.token);
+
           props.setsignedIn(true);
           props.setuser(res.data.data.user);
           history.push("/");

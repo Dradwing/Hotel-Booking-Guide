@@ -22,7 +22,6 @@ const createSendToken = (user, statusCode, res) => {
   //console.log(res.headers);
   res.status(statusCode).json({
     status: "success",
-    token,
     data: { user: user },
   });
 };
@@ -71,6 +70,19 @@ exports.login = async (req, res) => {
   }
   //if everything is ok send token to client
   createSendToken(user, 200, res);
+};
+exports.logout = (req, res) => {
+  //just send a corrupted cookie
+
+  const cookieOptions = {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  };
+  //no need to send cookie via https as it is already corrupted
+  res.cookie("jwt", "logout", cookieOptions);
+  res.status(200).json({
+    status: "success",
+  });
 };
 
 exports.forgotPassword = async (req, res) => {
@@ -315,12 +327,7 @@ exports.protect = async (req, res, next) => {
   let token;
   let freshUser;
   let decodedToken;
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith("Bearer")
-  ) {
-    token = req.headers.authorization.split(" ")[1];
-  } else if (req.cookies.jwt) {
+  if (req.cookies.jwt) {
     token = req.cookies.jwt;
   }
 
@@ -377,12 +384,12 @@ exports.sendEmail = async (req, res) => {
     });
     res.status(200).json({
       status: "success",
-      message: "Message sent",
+      message: "Message send",
     });
   } catch (err) {
     res.status(200).json({
       status: "failed",
-      message: "Email could not be sent",
+      message: "Email could not be send",
     });
   }
 };

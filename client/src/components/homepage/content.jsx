@@ -9,7 +9,6 @@ function Content(props) {
       <Pastsearch
         signedIn={props.signedIn}
         history={props.history}
-        jwt={props.jwt}
         sethistory={props.sethistory}
       />
       <hr style={{ width: "100%" }} />

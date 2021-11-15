@@ -20,11 +20,10 @@ function Contact() {
       .then((res) => {
         if (res.data.status === "success") {
           let errormessage = res.data.message;
-          console.log("Success but");
           seterror(errormessage);
         } else {
           let errormessage = res.data.message;
-          seterror("*" + errormessage);
+          seterror("* " + errormessage);
         }
       })
       .catch((err) => {
@@ -85,9 +84,10 @@ function Contact() {
               id="message"
               name="message"
               placeholder="enter your message here..."
+              style={{ margin: "0" }}
             />
           </fieldset>
-          <p style={{ color: "white" }}>{error}</p>
+          <p style={{ color: "white", margin: "0" }}>{error}</p>
           <button type="submit">Send Message</button>
         </form>
       </div>

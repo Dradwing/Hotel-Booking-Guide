@@ -15,7 +15,7 @@ import ResetPassword from "./components/authentication/resetPassword";
 function App() {
   const [signedIn, setsignedIn] = React.useState(false);
   const [history, sethistory] = React.useState([]);
-  const [jwt, setjwt] = React.useState("");
+
   const [user, setuser] = React.useState({});
 
   return (
@@ -26,7 +26,6 @@ function App() {
         sethistory={sethistory}
         user={user}
         setuser={setuser}
-        jwt={jwt}
       />
       <Switch>
         <Route
@@ -36,7 +35,6 @@ function App() {
             <Home
               signedIn={signedIn}
               history={history}
-              jwt={jwt}
               sethistory={sethistory}
             />
           )}
@@ -48,7 +46,6 @@ function App() {
             <Register
               setsignedIn={setsignedIn}
               sethistory={sethistory}
-              setjwt={setjwt}
               setuser={setuser}
             />
           )}
@@ -60,7 +57,6 @@ function App() {
             <Signin
               setsignedIn={setsignedIn}
               sethistory={sethistory}
-              setjwt={setjwt}
               setuser={setuser}
             />
           )}
@@ -77,7 +73,6 @@ function App() {
             <ResetPassword
               setsignedIn={setsignedIn}
               sethistory={sethistory}
-              setjwt={setjwt}
               setuser={setuser}
             />
           )}
@@ -85,7 +80,7 @@ function App() {
         <Route
           exact
           path="/updatePassword"
-          component={() => <UpdatePassword jwt={jwt} />}
+          component={() => <UpdatePassword />}
         />
 
         <Route exact path="/search" component={() => <List />} />
@@ -93,7 +88,7 @@ function App() {
           exact
           path="/details"
           component={() => (
-            <Details jwt={jwt} signedIn={signedIn} sethistory={sethistory} />
+            <Details signedIn={signedIn} sethistory={sethistory} />
           )}
         />
 
