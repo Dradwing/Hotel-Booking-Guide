@@ -52,4 +52,7 @@ app.use(compression());
 
 app.use("/api/v1/users", userRouter);
 
+app.get("*", (req, res) => {
+  res.redirect(`${req.protocol}://${req.get("host")}`);
+});
 module.exports = app;
