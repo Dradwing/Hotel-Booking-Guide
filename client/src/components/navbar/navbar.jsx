@@ -7,14 +7,7 @@ import axios from "axios";
 function NNavbar(props) {
   const history = useHistory();
   const signout = () => {
-    axios
-      .get("/api/v1/users/logout/")
-      .then((resp) => {
-        console.log(resp.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    axios.get("/api/v1/users/logout/");
     props.setsignedIn(false);
     props.sethistory([]);
     history.push("/");

@@ -78,8 +78,10 @@ exports.logout = (req, res) => {
     expires: new Date(Date.now() + 10 * 1000),
     httpOnly: true,
   };
+  if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
   //no need to send cookie via https as it is already corrupted
   res.cookie("jwt", "logout", cookieOptions);
+
   res.status(200).json({
     status: "success",
   });
