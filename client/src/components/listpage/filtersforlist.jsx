@@ -16,7 +16,7 @@ function Filtersforlist(props) {
   });
   const [focus, setFocus] = React.useState(null);
 
-  const { startDate, endDate } = dateRange;
+  var { startDate, endDate } = dateRange;
 
   //functions
   function handlefocus(event) {
@@ -85,8 +85,8 @@ function Filtersforlist(props) {
               pathname: "/search",
               state: {
                 cityname: city.trim() === "" ? props.name : city,
-                startdate: moment(startDate).format("YYYY-MM-DD"),
-                enddate: moment(endDate).format("YYYY-MM-DD"),
+                startdate: moment(dateRange.startdate).format("YYYY-MM-DD"),
+                enddate: moment(dateRange.enddate).format("YYYY-MM-DD"),
                 guestsnumber: isNaN(guests) ? props.guestsnumber : guests,
               },
             }}
