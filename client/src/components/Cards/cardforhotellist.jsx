@@ -122,12 +122,14 @@ function Cardforhotellist(props) {
               textAlign: "right",
             }}
           >
-            {props.totalPrice.includes("nights") ||
-            props.totalPrice.includes("guests")
-              ? props.totalPrice
-                  .replace("total", "")
-                  .replaceAll("&nbsp;", " ")
-                  .replace("1 room,", "")
+            {props.totalPrice
+              ? props.totalPrice.includes("nights") ||
+                props.totalPrice.includes("guests")
+                ? props.totalPrice
+                    .replace("total", "")
+                    .replaceAll("&nbsp;", " ")
+                    .replace("1 room,", "")
+                : undefined
               : undefined}
           </p>
           <p style={{ fontSize: "small", margin: 0, textAlign: "right" }}>
