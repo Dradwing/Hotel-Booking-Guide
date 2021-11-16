@@ -86,7 +86,7 @@ function Filtersforlist(props) {
               state: {
                 cityname: city.trim() === "" ? props.name : city,
                 startdate: moment(startDate).format("YYYY-MM-DD"),
-                enddate: moment(endDate).format("yyyy-MM-DD"),
+                enddate: moment(endDate).format("YYYY-MM-DD"),
                 guestsnumber: isNaN(guests) ? props.guestsnumber : guests,
               },
             }}
