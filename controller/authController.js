@@ -17,7 +17,7 @@ const createSendToken = (user, statusCode, res) => {
 
   //browser can not access and change this cookie. only recieve and send
   res.cookie("jwt", token, cookieOptions);
-  //hide password even when creating new user though not saved
+  //hide password even when creating new user though cookie is not saved
   user.password = undefined;
   //console.log(res.headers);
   res.status(statusCode).json({
