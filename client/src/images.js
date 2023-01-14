@@ -15,7 +15,7 @@ var popular = [
     id: "2",
     name: "Chandigarh",
     image_url:
-      "https://res.cloudinary.com/ch/image/upload/c_fill,e_improve,f_auto/v1/hbimages/mobile/location/1526025782493-Leisure_Valley.jpg",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/60/54/39/caption.jpg?w=800&h=600&s=1",
   },
   {
     id: "3",

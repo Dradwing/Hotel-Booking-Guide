@@ -20,8 +20,13 @@ const limiter = rateLimit({
   message: "Too many requests from this IP.Please try after one hour",
 });
 
-app.use(express.static("client/build"));
 const path = require("path");
+
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+app.get("*", (req, res) =>
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+);
 
 //limiting requests from same api
 app.use("/api/v1/users", limiter); //also if app get crashed it will automatically set limit to max
